@@ -1,0 +1,22 @@
+{
+  "name": "twitter-js",
+  "version": "1.0.0",
+  "description": "Fullstack Assignment to make Twitter Clone",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sballan/twitter-js.git"
+  },
+  "author": "Samuel Ballan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sballan/twitter-js/issues"
+  },
+  "homepage": "https://github.com/sballan/twitter-js#readme",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}
