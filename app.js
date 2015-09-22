@@ -1,7 +1,10 @@
 var express = require('express');
+var morgan = require('morgan');
 
 var app = express();
 var router = express.Router();
+
+app.use(morgan('tiny'));
 
 router.get('/', function(req, res) {
   res.send("Homepage");
@@ -10,11 +13,6 @@ router.get('/', function(req, res) {
 router.get('/news', function(req, res) {
   res.send("News Page");
 });
-
-
-
-
-
 
 
 
