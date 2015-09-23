@@ -9,17 +9,34 @@
     <div class="col-md-3">
       <img src="https://pbs.twimg.com/profile_images/2450268678/olxp11gnt09no2y2wpsh_normal.jpeg"><br>
       <b>Nimit Maru</b><br>
-      100 followers
+      <p>100 followers</p>
+      <!--  Tweet Posting Form-->
+      {% if showForm %}
+        <form action="/submit" method="POST">
+          <label for="name_field">Name:</label>
+          <input name="name" type="text" id="name_field" />
+
+          <label for="text_field">Text:</label>
+          <input name="text" type="text" id="text_field" style="width: 250px;" />
+
+          <input type="submit" value="Submit" />
+        </form>
+      {% endif %}
     </div>
     <div class="col-md-9">
+
       <h2>All Tweets</h2>
 
       <!-- display tweets here -->
       {% for tweet in tweets %}
         <ul class="tweetbox">
           <img id="tweetbox">
-          <li id="tweet-name">{{tweet.name}}</li>
-          <li id="tweet-text">{{tweet.text}}</li>
+          <li id="tweet-name">
+            <a href="/users/{{tweet.name}}">{{tweet.name}}</a>
+          </li>
+          <li id="tweet-text">
+            <a id="tweet-text-link"  href="/users/{{tweet.name}}/tweets/{{tweet.id}}">{{tweet.text}}</a>
+          </li>
         </ul>
       {% endfor %}
 

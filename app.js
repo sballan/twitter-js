@@ -2,6 +2,7 @@ var express = require('express');
 var morgan = require('morgan');
 var swig = require('swig');
 var routes = require('./routes');
+var body-parser = require('body-parser');
 
 var people =  {
     title: 'homepage',
