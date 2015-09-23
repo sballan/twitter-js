@@ -2,25 +2,13 @@ var express = require('express');
 var morgan = require('morgan');
 var swig = require('swig');
 var routes = require('./routes');
-var body-parser = require('body-parser');
+var bodyParser = require('body-parser');
+var socketio = require('socket.io');
 
-var people =  {
-    title: 'homepage',
-    people: {
-      jane:{
-        name: "Jane Doe"
-      },
-      tom:{
-        name: "Tom J"
-      },
-      chris:{
-        name: "Chris Q"
-      }
-    }
-  };
 
 var app = express();
 app.use(express.static(__dirname + '/public'));
+app.use(bodyParser());
 app.use('/', routes);
 app.use(morgan('tiny'));
 
@@ -51,4 +39,5 @@ swig.setDefaults({ cache: false });
 // });
 
 
-app.listen(3000);
+var server = app.listen(3000);
+var io = socketio.listen(server);

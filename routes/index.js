@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var path = require('path');
 var tweetBank = require('../tweetBank');
-var body_parser = require('body-parser');
+var bodyParser = require('body-parser');
 
 
 router.get('/', function(req, res) {
@@ -15,8 +15,9 @@ router.get('/', function(req, res) {
 router.get('/users/:name', function(req, res) {
   var name = req.params.name;
   var tweets = tweetBank.find({name: name});
-  res.render('index', { title: 'Twitter.js - Posts by ' + name, tweets: tweets });
+  res.render('index', { title: 'Twitter.js - Posts by ' + name, tweets: tweets, name: name, showForm: true });
 });
+
 router.get('/users/:name/tweets/:id', function(req, res) {
   var name = req.params.name;
   var id = Number(req.params.id);
@@ -24,6 +25,13 @@ router.get('/users/:name/tweets/:id', function(req, res) {
   console.log(tweet);
   res.render('index', { title: 'Twitter.js - Tweet by ' + name, tweets: tweet });
 
+});
+
+router.post('/submit', function(req, res) {
+  var name = req.body.name;
+  var text = req.body.text;
+  tweetBank.add(name, text);
+  res.redirect('/');
 });
 
 module.exports = router;
