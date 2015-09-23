@@ -8,17 +8,10 @@ var swig = require('swig');
 var routes = require('./routes');
 var bodyParser = require('body-parser');
 var socketio = require('socket.io');
+var router = express.Router();
 
-//static file middleware
-app.use(function(req, res, next) {
-  var mimeType = mime.lookup(req.path);
-  fs.readFile('./public/' + req.path, function(err, fileBuffer) {
-    if(err) return next();
-    res.header('Content-Type', mimeType);
-    res.send(fileBuffer);
-  });
-});
 
+module.exports = router;
 
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser());
