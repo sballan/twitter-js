@@ -37,6 +37,10 @@ body {
   padding-right: 15px;
 }
 
+ul {
+  list-style-type: none;
+}
+
 code {
   font-size: 80%;
 }
@@ -49,7 +53,12 @@ code {
   float: left;
   height: 48px;
   width: 48px;
+  margin-right: 12px;
   content:url("http://lorempixel.com/48/48");
+}
+
+#tweet-name {
+  font-weight: bold;
 }
 .content {
   margin-left: 60px;
