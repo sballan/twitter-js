@@ -19,11 +19,12 @@ var people =  {
   };
 
 var app = express();
+app.use(express.static(__dirname + '/public'));
 app.use('/', routes);
 app.use(morgan('tiny'));
 
 swig.renderFile(__dirname + '/views/index.html', people, function(err, output) {
-  console.log(output);
+  //console.log(output);
 });
 
 app.engine('html', swig.renderFile);
